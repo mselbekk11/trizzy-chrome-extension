@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@clerk/chrome-extension": "^2.2.24",
+    "convex": "^1.23.0",
     "plasmo": "0.90.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -33,6 +34,9 @@
       "cookies",
       "storage"
     ],
-    "host_permissions": ["$PLASMO_PUBLIC_CLERK_SYNC_HOST/*", "$CLERK_FRONTEND_API/*"]
+    "host_permissions": [
+      "$PLASMO_PUBLIC_CLERK_SYNC_HOST/*",
+      "$CLERK_FRONTEND_API/*"
+    ]
   }
 }
