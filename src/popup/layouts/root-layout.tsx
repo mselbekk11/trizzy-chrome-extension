@@ -25,11 +25,11 @@ export const RootLayout = () => {
       publishableKey={PUBLISHABLE_KEY}
       afterSignOutUrl="/"
       syncHost={SYNC_HOST}>
-      <div className="plasmo-w-[785px] plasmo-h-[600px]">
+      <div className="plasmo-w-[600px] plasmo-h-[600px]">
         <main>
           <Outlet />
         </main>
-        <footer>
+        {/* <footer>
           <SignedIn>
             <Link to="/settings">Settings</Link>
             <UserButton />
@@ -39,7 +39,7 @@ export const RootLayout = () => {
             <Link to="/sign-in">Sign In</Link>
             <Link to="/sign-up">Sign Up</Link>
           </SignedOut>
-        </footer>
+        </footer> */}
       </div>
     </ClerkProvider>
   )
