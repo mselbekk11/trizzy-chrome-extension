@@ -65,4 +65,10 @@ export default defineSchema({
     stripe_payment_intent_id: v.optional(v.string()),
     metadata: v.optional(v.any()),
   }).index("by_user_id", ["user_id"]),
+  image_files: defineTable({
+    storageId: v.id("_storage"),
+    url: v.string(),
+    userId: v.string(),
+    createdAt: v.number(),
+  }).index("by_user", ["userId"]),
 });
