@@ -59,7 +59,7 @@ export const RootLayout = () => {
       syncHost={SYNC_HOST}>
       <ConvexProvider client={convex}>
         <ConvexClerkAuth />
-        <div className="plasmo-w-[600px] plasmo-h-[600px]">
+        <div className="plasmo-w-full plasmo-h-full">
           <main>
             <Outlet />
           </main>

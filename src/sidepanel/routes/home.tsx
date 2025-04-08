@@ -28,10 +28,10 @@ export const Home = () => {
   console.log("Models:", models)
 
   return (
-    <>
+    <div className="plasmo-w-full plasmo-h-full plasmo-flex plasmo-flex-col">
       <Navigation />
       {isSignedIn ? (
-        <div className="plasmo-flex plasmo-flex-col plasmo-items-center plasmo-h-screen plasmo-bg-[#F9F9F9] plasmo-p-4">
+        <div className="plasmo-flex-1 plasmo-flex plasmo-flex-col plasmo-items-center plasmo-bg-[#F9F9F9] plasmo-p-4 plasmo-overflow-auto plasmo-min-h-0">
           <div className="plasmo-mb-4">
             Welcome, {user?.firstName || "User"}!
           </div>
@@ -101,30 +101,28 @@ export const Home = () => {
           </div>
         </div>
       ) : (
-        <div className="plasmo-flex plasmo-flex-col plasmo-items-center plasmo-justify-center plasmo-h-screen plasmo-bg-[#F9F9F9]">
+        <div className="plasmo-flex-1 plasmo-flex plasmo-flex-col plasmo-items-center plasmo-justify-center plasmo-bg-[#F9F9F9] plasmo-overflow-auto">
           {/* Content for non-logged in users */}
-          <div className="plasmo-flex plasmo-flex-col plasmo-items-center plasmo-h-screen plasmo-pt-12">
-            <div className="plasmo-flex plasmo-flex-col plasmo-items-center plasmo-gap-2 plasmo-mb-12">
-              <h1 className="plasmo-text-2xl plasmo-font-bold">
-                Welcome to Trizzy
-              </h1>
-              <h3 className="plasmo-text-1xl plasmo-font-bold">
-                Please sign in to continue
-              </h3>
-            </div>
-            <Link to="/sign-in">
-              <button className="plasmo-bg-black plasmo-text-md plasmo-text-white plasmo-px-4 plasmo-py-2 plasmo-rounded-lg">
-                Sign In
-              </button>
-            </Link>
-            {/* <Link to="/sign-up">
-              <button className="plasmo-bg-black plasmo-text-md plasmo-text-white plasmo-px-4 plasmo-py-2 plasmo-rounded-lg">
-                Sign Up
-              </button>
-            </Link> */}
+          <div className="plasmo-flex plasmo-flex-col plasmo-items-center plasmo-gap-2 plasmo-mb-12 plasmo-pt-12">
+            <h1 className="plasmo-text-2xl plasmo-font-bold">
+              Welcome to Trizzy
+            </h1>
+            <h3 className="plasmo-text-1xl plasmo-font-bold">
+              Please sign in to continue
+            </h3>
           </div>
+          <Link to="/sign-in">
+            <button className="plasmo-bg-black plasmo-text-md plasmo-text-white plasmo-px-4 plasmo-py-2 plasmo-rounded-lg">
+              Sign In
+            </button>
+          </Link>
+          {/* <Link to="/sign-up">
+            <button className="plasmo-bg-black plasmo-text-md plasmo-text-white plasmo-px-4 plasmo-py-2 plasmo-rounded-lg">
+              Sign Up
+            </button>
+          </Link> */}
         </div>
       )}
-    </>
+    </div>
   )
 }
