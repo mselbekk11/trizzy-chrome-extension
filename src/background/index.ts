@@ -6,6 +6,40 @@ if (!publishableKey) {
   throw new Error('Please add the PLASMO_PUBLIC_CLERK_PUBLISHABLE_KEY to the .env.development file')
 }
 
+// Register the side panel
+chrome.runtime.onInstalled.addListener(() => {
+  // Configure the side panel
+  if (chrome.sidePanel) {
+    // Set options for the side panel
+    chrome.sidePanel.setOptions({
+      enabled: true,
+      path: 'sidepanel.html'
+    }).catch(error => console.error("Error setting side panel options:", error));
+
+    // Configure the behavior to open on action click
+    chrome.sidePanel.setPanelBehavior({
+      openPanelOnActionClick: true
+    }).catch(error => console.error("Error setting panel behavior:", error));
+  }
+});
+
+// Add a context menu to open the side panel
+chrome.runtime.onInstalled.addListener(() => {
+  chrome.contextMenus.create({
+    id: 'openSidePanel',
+    title: 'Open Trizzy Panel',
+    contexts: ['all']
+  });
+});
+
+// Handle context menu clicks
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+  if (info.menuItemId === 'openSidePanel' && tab?.windowId) {
+    // Open the side panel in the current window
+    chrome.sidePanel.open({ windowId: tab.windowId }).catch(error => console.error("Error opening side panel:", error));
+  }
+});
+
 // Use `createClerkClient()` to create a new Clerk instance
 // and use `getToken()` to get a fresh token for the user
 async function getToken() {
